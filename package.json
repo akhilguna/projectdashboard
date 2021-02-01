@@ -1,0 +1,35 @@
+{
+  "name": "react-sidebar",
+  "version": "1.0.0",
+  "description": "React sidebar no library!",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@snipsonian/react": "1.7.0",
+    "babel-plugin-styled-components": "1.10.6",
+    "corgi-react-snippets": "0.1.3",
+    "material-ui-image": "^3.3.1",
+    "react": "16.8.6",
+    "react-awesome-snippets-create-pic": "0.0.10",
+    "react-dom": "16.8.6",
+    "react-scripts": "3.0.1",
+    "styled-components": "4.4.0",
+    "styled-icons": "8.6.0"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
