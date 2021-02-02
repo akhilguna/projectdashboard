@@ -96,12 +96,16 @@ nav {
 } */
 .red{
   color: red;
+  font-size: 15px;
+
 }
 .green{
   color: green;
+  font-size: 15px;
 }
 .black{
   color: black;
+  font-size: 20px;
 }
 select{
     height: auto;

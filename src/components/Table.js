@@ -36,11 +36,11 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('slot1', 'slot1', 6.0, 24, 4.0),
-  createData('slot2', 'slot2', 9.0, 37, 4.3),
-  createData('slot3', 'slot3', 16.0, 24, 6.0),
-  createData('slot4', 'slot4', 3.7, 67, 4.3),
-  createData('slot5', 'slot5', 16.0, 49, 3.9),
+  createData('slot1', 1, ),
+  createData('slot2', 0, ),
+  createData('slot3', 1,),
+  createData('slot4', 1,),
+  createData('slot5', 0,),
 ];
 
 export default function BasicTable() {
@@ -66,7 +66,7 @@ export default function BasicTable() {
               <TableCell compnent="th" align="center" className={classes.subtitle1}>
                 {row.name}
               </TableCell>
-              <TableCell align="center"><App/></TableCell>
+              <TableCell align="center"><Greeting isLoggedIn={row.calories} /></TableCell>
               </TableRow> 
              ))}
                     
@@ -129,4 +129,16 @@ class App extends React.Component {
       </form>
     );
   }
+}
+
+
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {    return <UserGreeting />;  }  return <GuestGreeting />;}
+function UserGreeting(props) {
+return <p className="green">Available</p>;
+}
+
+function GuestGreeting(props) {
+return <p className="red">Not available </p>;
 }
