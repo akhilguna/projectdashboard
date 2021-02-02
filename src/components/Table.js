@@ -66,7 +66,7 @@ export default function BasicTable() {
               <TableCell compnent="th" align="center" className={classes.subtitle1}>
                 {row.name}
               </TableCell>
-              <TableCell align="center"><Greeting isLoggedIn={row.calories} /></TableCell>
+              <TableCell align="center"><Status isLoggedIn={row.calories} /></TableCell>
               </TableRow> 
              ))}
                     
@@ -76,69 +76,69 @@ export default function BasicTable() {
     </Container>
   );
 }
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "select the status",
-      countries: [
-        { id: "1", country: "Available", class:"green" },
-        { id: "2", country: "Not available",class:"red" },
-        { id: "3", country: "parked", class:"black" }
-      ]
-    };
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       value: "select the status",
+//       countries: [
+//         { id: "1", country: "Available", class:"green" },
+//         { id: "2", country: "Not available",class:"red" },
+//         { id: "3", country: "parked", class:"black" }
+//       ]
+//     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
 
-  handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.value);
-    event.preventDefault();
-  }
+//   handleSubmit(event) {
+//     alert("Your favorite flavor is: " + this.state.value);
+//     event.preventDefault();
+//   }
 
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
+//   handleChange = event => {
+//     this.setState({ value: event.target.value });
+//   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        {/* <label>
-          Pick your favorite flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </label> */}
-        <br />
-        <br />
-        <label>
-          {/* Looping through Array */}
-          <select>
-            {this.state.countries.map(item => (
-              <option key={item.id} value={item.country} className={item.class}>
-                {item.country}
-              </option>
-            ))}
-            {console.log(this.state.countries)}
-          </select>
-        </label>
-          {/* <input type="submit" value="Submit" /> */}
-      </form>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <form onSubmit={this.handleSubmit}>
+//         {/* <label>
+//           Pick your favorite flavor:
+//           <select value={this.state.value} onChange={this.handleChange}>
+//             <option value="grapefruit">Grapefruit</option>
+//             <option value="lime">Lime</option>
+//             <option value="coconut">Coconut</option>
+//             <option value="mango">Mango</option>
+//           </select>
+//         </label> */}
+//         <br />
+//         <br />
+//         <label>
+//           {/* Looping through Array */}
+//           <select>
+//             {this.state.countries.map(item => (
+//               <option key={item.id} value={item.country} className={item.class}>
+//                 {item.country}
+//               </option>
+//             ))}
+//             {console.log(this.state.countries)}
+//           </select>
+//         </label>
+//           {/* <input type="submit" value="Submit" /> */}
+//       </form>
+//     );
+//   }
+// }
 
 
-function Greeting(props) {
+function Status(props) {
   const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {    return <UserGreeting />;  }  return <GuestGreeting />;}
-function UserGreeting(props) {
+  if (isLoggedIn) {    return <UserStatus />;  }  return <UserNotStatus />;}
+function UserStatus(props) {
 return <p className="green">Available</p>;
 }
 
-function GuestGreeting(props) {
+function UserNotStatus(props) {
 return <p className="red">Not available </p>;
 }
