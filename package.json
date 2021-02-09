@@ -13,6 +13,9 @@
     "react": "16.8.6",
     "react-awesome-snippets-create-pic": "0.0.10",
     "react-dom": "16.8.6",
+    "react-final-form": "^6.5.2",
+    "react-id-generator": "^3.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
     "styled-components": "4.4.0",
     "styled-icons": "8.6.0"

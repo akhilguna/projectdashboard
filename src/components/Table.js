@@ -31,16 +31,16 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, calories, datestart, dateend, protein) {
+  return { name, calories, datestart, dateend, protein };
 }
 
 const rows = [
-  createData('slot1', 1, ),
-  createData('slot2', 0, ),
-  createData('slot3', 1,),
-  createData('slot4', 1,),
-  createData('slot5', 0,),
+  createData('slot1', 1, "06/30/2019","07/30/2019"),
+  createData('slot2', 0, "06/30/2019","07/30/2019" ),
+  createData('slot3', 1, "06/30/2019","07/30/2019"),
+  createData('slot4', 1,"06/30/2019","07/30/2019" ),
+  createData('slot5', 0, "06/30/2019","07/30/2019"),
 ];
 
 export default function BasicTable() {
@@ -54,6 +54,9 @@ export default function BasicTable() {
           <TableRow >
             <TableCell align="center"  className={classes.thcolor1}>Slots Fill</TableCell>
             <TableCell align="center"  className={classes.thcolor2}>Slots status</TableCell>
+            <TableCell align="center"  className={classes.thcolor2}>Date starting </TableCell>
+            <TableCell align="center"  className={classes.thcolor2}>Date ending</TableCell>
+            <TableCell align="center"  className={classes.thcolor2}>timings</TableCell>
             {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell>
             <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
@@ -67,6 +70,9 @@ export default function BasicTable() {
                 {row.name}
               </TableCell>
               <TableCell align="center"><Status isLoggedIn={row.calories} /></TableCell>
+              <TableCell align="center">{row.datestart}</TableCell>
+              <TableCell align="center">{row.dateend}</TableCell>
+              <TableCell align="center"><Diff start={row.datestart} end={row.dateend}/></TableCell>
               </TableRow> 
              ))}
                     
@@ -141,4 +147,12 @@ return <p className="green">Available</p>;
 
 function UserNotStatus(props) {
 return <p className="red">Not available </p>;
+}
+
+function Diff(props){
+  var date1 = new Date(props.start); 
+  var date2 = new Date(props.end); 
+  var Difference_In_Time = date2.getTime() - date1.getTime(); 
+  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24); 
+  return Difference_In_Days
 }

@@ -1,19 +1,23 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 const SideBar = ({ openClass }) => {
   return (
+    <Router>
     <nav className={openClass === 'open' ? 'opneSidebar' : ''}>
       <ul className="navlist">
         <li>
-          <a className="menu-item" href="/">
-            Home
-          </a>
+        <Link to="/" className="menu-item">Home</Link>
         </li>
-
+        <Link to="/slot" className="menu-item">Slot</Link>
         <li>
-          <a className="menu-item" href="/burgers">
-            Burgers
-          </a>
+         
         </li>
 
         <li>
@@ -28,6 +32,8 @@ const SideBar = ({ openClass }) => {
         </li>
       </ul>
     </nav>
+  </Router>
+
   );
 };
 
